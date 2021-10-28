@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './componets/NavBar';
-
+import ItemListContainer from './componets/itemlistContainer/ItemListContainer';
 
 const style = {
-  backgroundColor: 'grey',
-  fontSize: '20px'
+   fontSize: '20px'
 }
 
 NavBar()
@@ -14,13 +14,14 @@ NavBar()
 
 function App() {
   return (
-    <div className="App" style= { style } onClick= ''>
-      <h1> Clase 3 NavBar </h1>
+    <div className="App" >
+      <h1> Clase 4 </h1>
       <NavBar/>
-          
-               
+      <ItemListContainer greetings="Hola soy prop" />               
     </div>
   );
 }
+
+
 
 export default App;
