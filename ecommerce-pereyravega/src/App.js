@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; //import de boostrap
 import NavBar from './componets/NavBar';
 import ItemListContainer from './componets/itemlistContainer/ItemListContainer';
 
@@ -15,7 +15,7 @@ NavBar()
 function App() {
   return (
     <div className="App" >
-      <h1> Clase 4 </h1>
+      <h1> Clase 5 </h1>
       <NavBar/>
       <ItemListContainer greetings="Hola soy prop" />               
     </div>
