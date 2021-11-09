@@ -15,7 +15,7 @@ NavBar()
 function App() {
   return (
     <div className="App" >
-      <h1> Clase 5 </h1>
+      <h1> Clase 6 </h1>
       <NavBar/>
       <ItemListContainer greetings="Hola soy prop" />               
     </div>
