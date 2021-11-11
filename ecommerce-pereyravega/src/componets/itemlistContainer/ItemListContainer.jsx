@@ -1,9 +1,17 @@
 import { useState, useEffect } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import { getFetch } from "../Services/getFetch";
-import  ItemList  from "./ItemList"; //revisar problema de carga
+import ItemList from "./ItemList"
 
 
+
+
+
+const getItem = new Promise((res) => {
+    setTimeout(() => {
+        res(products)
+    }, 2000);
+});
 
 
 const ItemListContainer = ({greetings}) => {
