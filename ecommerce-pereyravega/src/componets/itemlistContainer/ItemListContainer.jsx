@@ -5,37 +5,31 @@ import ItemList from "./ItemList"
 
 
 
-
-
-const getItem = new Promise((res) => {
-    setTimeout(() => {
-        res(products)
-    }, 2000);
-});
-
-
-const ItemListContainer = ({greetings}) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        getFetch //llamada a una api
-    .then(res => {
-        setProducts(res) //devuelve un array con productos
-    }
-    )
-    
-    .catch(err => console.log(err))
-    .finally(()=> setLoading(false))
-    }, [])
+        if (id) {
+            getFetch
+                .then(res => setProducts(res.filter(prod => prod.estado === id)))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
+        } else {
+             getFetch
+                 .then(res => setProducts(res))
+                 .catch(err => console.log(err))
+                 .finally(() => setLoading(false))
+            
+        }
+
+       
+    },[id] )
 
 
-    
-
-
-    return (
+      return (
         <>
-        <h2>{greetings}</h2>
+        
         
         { loading ? <h2>Cargando...</h2> :
         <ItemList products={products} />

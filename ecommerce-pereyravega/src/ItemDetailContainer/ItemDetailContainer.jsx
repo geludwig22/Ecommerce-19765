@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import ItemDetail  from './ItemDetail';
+import Item from '../componets/itemlistContainer/Item';
+import { getFetch } from '../componets/Services/getFetch';
 
 
 
