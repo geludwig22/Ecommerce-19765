@@ -6,7 +6,7 @@ import {
     CardText,
     CardTitle,
 } from 'reactstrap'; 
-import "../App.css"
+import '../src/App.css';
 import ItemCount from './ItemCount';
 
 

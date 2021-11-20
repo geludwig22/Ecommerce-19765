@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; //import de boostrap
 import NavBar from './componets/NavBar';
-import ItemListContainer from './componets/itemlistContainer/ItemListContainer';
-import ItemDetailContainer from './ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from '../src/componets/itemlistContainer/ItemListContainer';
+import ItemDetailContainer from '../src/componets/ItemDetailContainer/ItemDetailContainer';
 
 
 const style = {
