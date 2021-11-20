@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import ItemCount from "../ItemCount/ItemCount";
 import { getFetch } from "../Services/getFetch";
 import ItemList from "./ItemList"
@@ -8,6 +9,7 @@ import ItemList from "./ItemList"
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
+    const { id } = useParams();
 
     useEffect(() => {
         if (id) {

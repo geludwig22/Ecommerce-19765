@@ -1,4 +1,4 @@
-import { BrowserRouter as Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'; //import de boostrap
 import NavBar from './componets/NavBar';
@@ -16,17 +16,17 @@ NavBar()
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
          <div className="App">
       <NavBar />
       <Routes>
           <Route path="/" element={<ItemListContainer />} />
           <Route path="/categoria/:id" element={<ItemListContainer />} />
           <Route path="/item/:id" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
+          {/* <Route path="/cart" element={<Cart />} /> */}
         </Routes>
         </div>
-      </BrowserRouter>
+    </Router>
   );
 }
 

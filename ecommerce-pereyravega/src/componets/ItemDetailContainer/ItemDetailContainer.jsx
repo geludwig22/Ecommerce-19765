@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail  from '../ItemDetailContainer/ItemDetail';
-
+// import '../App.css'
 import { getFetch } from '../Services/getFetch';
 
 
@@ -46,7 +46,7 @@ const ItemDetailContainer = () => {
         {
             loading 
             ? 
-                <div style={ { textAlign: "center" } }><Spinner color="primary" size="">.</Spinner></div>
+                <div style={ { textAlign: "center" } }></div>
             : 
                 <ItemDetail prod={item}/>
         }
