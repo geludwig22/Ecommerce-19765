@@ -1,7 +1,7 @@
 // import { Button } from "bootstrap";
 import React, {useState} from "react";
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
     const [count, setCount] = useState(initial)
 
     const sumar = () => {
@@ -11,8 +11,9 @@ const ItemCount = ({stock, initial}) => {
         count > initial ? setCount(count - 1) : alert ('No hay productos seleccionados')
     }
     
-    const onAdd = () => {
-        alert(`Agregaste ${count} productos`)
+    const handleOnAdd = () => {
+        onAdd(count)
+        setCount(initial)
     }
     
     
@@ -23,7 +24,7 @@ const ItemCount = ({stock, initial}) => {
         <label>Cantidad: {count}</label>
         <button className='btn btn-warning' onClick={restar}>-</button>
 
-        <button className='btn btn-outline-secondary' onClick={onAdd}>Agregar</button>
+        <button className='btn btn-outline-secondary' onClick={handleOnAdd}>Agregar al carrito</button>
 
         </div>
     )

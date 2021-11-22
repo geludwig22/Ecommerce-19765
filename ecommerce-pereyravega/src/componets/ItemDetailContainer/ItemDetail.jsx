@@ -8,31 +8,45 @@ import {
 } from 'reactstrap'; 
 // import '../App.css';
 import ItemCount from '../ItemCount/ItemCount';
+import { useState } from 'react';
 
 
 
 
 
 const ItemDetail = ({prod}) => {
+
+  const [wasClicked, setWasClicked] = useState(false);
+  const handleAdd = (cantidad) => {
+    console.log(cantidad);
+    setWasClicked(true);
+  };
+  
+
+
     return (
       <Card className="itemDetailCard">
         <CardImg
-          alt={prod.imgDesc}
-          src={prod.imgUrl}
+          alt={prod.titulo}
+          src={prod.thumbnailUrl}
           top 
         />
         <CardBody>
-          <CardTitle tag="h2">{prod.title}</CardTitle>
+          <CardTitle tag="h2">{prod.titulo}</CardTitle>
           <CardText>
             {prod.categoria}
             <br/>
-            {prod.price}
+            {prod.precio}
           </CardText>
         </CardBody>
         <CardBody>
-          <ItemCount stock={prod.stock} product={prod.title} />
+          {wasClicked ? (
+            <a>Ir al carrito</a>
+          ) : 
+          <ItemCount initial ={1} stock={prod.stock} onAdd={handleAdd} />}
         </CardBody>
       </Card>
+      
     );
 }
 
