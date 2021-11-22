@@ -6,10 +6,6 @@ import ItemListContainer from '../src/componets/itemlistContainer/ItemListContai
 import ItemDetailContainer from '../src/componets/ItemDetailContainer/ItemDetailContainer';
 
 
-const style = {
-   fontSize: '20px'
-}
-
 NavBar()
 
 

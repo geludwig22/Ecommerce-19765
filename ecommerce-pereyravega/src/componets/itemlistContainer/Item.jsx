@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 
 export const Item = ({prod}) => {
     return (
-        <div class="card" style="" key={prod.id}>
+        <div class="card"  key={prod.id}>
                 <img src={prod.thumbnailUrl} class="card-img-top" alt="..." />
                 <div class="card-body">
                 <h5 class="card-title">{prod.categoria}</h5>

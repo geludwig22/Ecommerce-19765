@@ -46,7 +46,7 @@ const ItemDetailContainer = () => {
         {
             loading 
             ? 
-                <div style={ { textAlign: "center" } }></div>
+                <div style={{ textAlign: "center" }}></div>
             : 
                 <ItemDetail prod={item}/>
         }
