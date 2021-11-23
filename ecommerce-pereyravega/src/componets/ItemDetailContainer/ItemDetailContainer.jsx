@@ -1,57 +1,42 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
 import ItemDetail  from '../ItemDetailContainer/ItemDetail';
-// import '../App.css'
 import { getFetch } from '../Services/getFetch';
 
 
 
-// const getItem = new Promise((res) => {
-//     setTimeout(() => {
-//         res(products)
-//     }, 2000);
-// });
-
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState();
+    const [prod, setProd] = useState({});
 
     const [loading, setLoading] = useState(true);
 
-    const { prodID } = useParams(); 
+    
 
 
     useEffect(() => {
-        if(prodID){
-            getFetch
-                .then(res => {
-                    setItem(res.find(x => x.id === parseInt(prodID)))
-                })
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        }else{
-            getFetch
-                .then(res => {
-                    setItem(res)
-                })
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false)) 
-        }
-    },[prodID]);
-
-
+    getFetch
+        .then( res => {        
+            console.log('llamada a api') // alguna accion con la respuesta  
+            setProd(res)
+        })    
+        .catch(err => console.log(err))
+        .finally(()=> setLoading(false))       
+    },[]) 
+      
+    console.log(prod);
 
     return (
-        <div className="modals">
-        {
-            loading 
-            ? 
-                <div style={{ textAlign: "center" }}></div>
-            : 
-                <ItemDetail prod={item}/>
-        }
-        </div>
+        <>
+            {loading ? 
+                    <h2>Cargando...</h2>
+                :
+                    <div className='border border-3 border-secondary'>
+                        <ItemDetail prod={prod} />                        
+                    </div>
+            }
+        </>
     )
+
 }
 
 export default ItemDetailContainer;
