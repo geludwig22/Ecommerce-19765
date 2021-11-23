@@ -13,7 +13,7 @@ export const Item = ({prod}) => {
                     {prod.precio}                                                            
                 </div>
                 <div className="card-footer">
-                        <Link to={`/categoria/${prod.id}`}>
+                        <Link to={`/detail/${prod.id}`}>
                             <button className="btn btn-outline-primary btn-block">
                                 Detalle del producto
                             </button>

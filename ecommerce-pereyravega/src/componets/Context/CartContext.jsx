@@ -1,25 +1,27 @@
 import React, { useContext, createContext, useState, useEffect } from 'react';
+import ItemCount from '../ItemCount/ItemCount';
 
 
 
 const CartContext = createContext();
+
 
 export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([{ id: 1 }, { id: 2 }, { id: 3 }]);
 
-  const addItem = (item, qnt) => {
+  const addItem = (item, count) => {
     if (isInCart(item)) {
       let newCart = cart;
       newCart.forEach((cartItem) => {
         if (cartItem.id === item.id) {
-          cartItem.qnt += qnt;
+          cartItem.count += count;
         }
       });
       setCart(newCart);
     } else {
-      setCart([...cart, { ...item, qnt }]);
+      setCart([...cart, { ...item, ItemCount }]);
     }
   };
 
@@ -46,3 +48,4 @@ const CartProvider = ({ children }) => {
   );
 };
 
+export default CartProvider;

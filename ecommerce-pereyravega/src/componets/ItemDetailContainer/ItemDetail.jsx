@@ -5,6 +5,7 @@ import { useCartContext } from '../Context/CartContext'
 
 
 
+
 const ItemDetail = ({prod}) => {
     const [count, setCount] = useState(0)
 
@@ -25,7 +26,7 @@ const ItemDetail = ({prod}) => {
                             <label>{prod.nombre}</label>
                         </div>
                         <div className="container">
-                            <img  src={prod.thumbnailUrl} className="w-25" alt="foto" />
+                            <img  src={prod.thumbnailUrl} className="w-25" alt=" " />
                             <br/>
                             <label>{prod.categoria}</label>
                         </div>
