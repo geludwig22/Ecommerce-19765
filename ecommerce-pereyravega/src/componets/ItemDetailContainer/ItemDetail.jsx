@@ -1,5 +1,5 @@
 import React from 'react';
-import {useEffect, useState} from 'react'
+import { useState } from 'react'
 import { Col, Row } from "react-bootstrap"
 import { useCartContext } from '../Context/CartContext'
 
@@ -42,47 +42,6 @@ const ItemDetail = ({prod}) => {
             </Row>
     )
 }
-
-
-
-
-
-// const ItemDetail = ({prod}) => {
-
-//   const [wasClicked, setWasClicked] = useState(false);
-//   const handleAdd = (cantidad) => {
-//     console.log(cantidad);
-//     setWasClicked(true);
-//   };
-  
-
-
-//     return (
-//       <Card className="itemDetailCard">
-//         <CardImg
-//           alt={prod.titulo}
-//           src={prod.thumbnailUrl}
-//           top 
-//         />
-//         <CardBody>
-//           <CardTitle tag="h2">{prod.titulo}</CardTitle>
-//           <CardText>
-//             {prod.categoria}
-//             <br/>
-//             {prod.precio}
-//           </CardText>
-//         </CardBody>
-//         <CardBody>
-//           {wasClicked ? (
-//             <a>Ir al carrito</a>
-//           ) : 
-//           <ItemCount initial ={1} stock={prod.stock} onAdd={handleAdd} />}
-//         </CardBody>
-//       </Card>
-      
-//     );
-// }
-
 
 
 

@@ -14,7 +14,7 @@ const ItemListContainer = () => {
     useEffect(() => {
         if (id) {
             getFetch
-                .then(res => setProducts(res.filter(prod => prod.estado === id)))
+                .then(res => setProducts(res.filter(prod => prod.categoria === id)))
                 .catch(err => console.log(err))
                 .finally(() => setLoading(false))
         } else {
