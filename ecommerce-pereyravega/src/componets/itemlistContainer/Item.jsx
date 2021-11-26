@@ -1,30 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom'
 
-export const Item = ({prod}) => {
+export const Item = ({prod, key}) => {
     return (
-        <div className='col-md-4'>                        
-            <div className="card w-100 mt-5" >
-                <div className="card-header">
-                    {`${prod.nombre} - ${prod.categoria}`}
-                </div>
-                <div className="card-body">
-                    <img src={prod.thumbnailUrl} alt='' className='w-50' />
-                    {prod.precio}                                                            
-                </div>
-                <div className="card-footer">
-                        <Link to={`/detail/${prod.id}`}>
-                            <button className="btn btn-outline-primary btn-block">
-                                Detalle del producto
-                            </button>
-                        </Link>
-                        <a href="#" class="btn btn-primary">Comprar</a>                                                            
-                </div>
-            </div>
-        </div>
-
+       
+        <div className='card mt-4 card-margin'>
+             <Link to= {`/detail/${prod.id}`}>
+                    <div className='card-header'>
+                        <h3 className='titleCardHeader'>{prod.nombre} </h3>
+                    </div>
+                    <div className='card-body'>
+                        <img className='cardFoto' src={prod.thumbnailUrl} alt="" ></img>
+                        <p className='categoria'>{prod.categoria}</p>  
+                    </div>
+                    
+                     <div className='card-footer'>
+                   
+                     <p className='precio'> $ {prod.precio} </p> 
+                       
+                    </div> 
+                    
+                    </Link>
+                 </div>
+               
     )
 }
-
-
-export default Item;

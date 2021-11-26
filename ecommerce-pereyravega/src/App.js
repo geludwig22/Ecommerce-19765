@@ -1,34 +1,40 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'; //import de boostrap
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './componets/NavBar';
-import ItemListContainer from '../src/componets/itemlistContainer/ItemListContainer';
-import ItemDetailContainer from '../src/componets/ItemDetailContainer/ItemDetailContainer';
-import CartContextProvider from '../src/componets/Context/CartContext'
+import './App.css';
+import ItemListContainer from './componets/itemlistContainer/ItemListContainer';
+import ItemDetailContainer from './componets/ItemDetailContainer/ItemDetailContainer';
+import { Cart } from './componets/Cart/Cart';
+import {CartContextProvider} from './componets/Context/CartContext'
 
-
-NavBar()
 
 
 
 function App() {
   return (
-    <CartContextProvider >
-    <Router>
-         <div className="App">
-      <NavBar />
-      <Routes>
-          <Route exact path="/" element={<ItemListContainer />} />
-          <Route exact path="/categoria/:id" element={<ItemListContainer />} />
-          <Route exact path="/detail/:id" element={<ItemDetailContainer />} />
-          <Route exact path="/cart" element={<CartContextProvider />} />
-        </Routes>
-        </div>
-    </Router>
+    <div className="App">
+    <CartContextProvider>
+    <BrowserRouter>
+     
+       <NavBar />
+       <Switch>
+ 
+        <Route exact path='/'> 
+        <ItemListContainer saludo= {"Bienvenido"}/></Route> 
+        <Route exact path='/categoria/:categoryID'> 
+        <ItemListContainer saludo= {"Nuestros Productos"}/></Route> 
+        
+       <Route exact path='/detail/:detailID' component ={ ItemDetailContainer}></Route>
+       <Route exact path='/Cart' component ={Cart}></Route>
+      </Switch>
+     
+   
+    </BrowserRouter>
     </CartContextProvider>
+    </div>
   );
 }
 
-
-
 export default App;
+
+

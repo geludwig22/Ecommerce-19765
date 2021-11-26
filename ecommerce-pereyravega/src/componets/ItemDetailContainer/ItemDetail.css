@@ -1,0 +1,22 @@
+.container {
+    
+    background-color: white;
+    padding: 0px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 2rem;
+  }
+  
+  .detail-header {
+    color: #131313;
+    background: rgb(33, 135, 251);
+    background: rgb(0, 225, 255);
+    color: black;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+    padding: 2rem;
+  }
+  
+.foto {
+  margin: 0 auto;
+}

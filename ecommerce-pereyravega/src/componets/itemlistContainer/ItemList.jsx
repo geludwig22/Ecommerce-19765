@@ -1,16 +1,13 @@
 import React from 'react'
 import { Item } from './Item'
 
-export const ItemList = ({products}) => {
+export const ItemList = ({productos}) => {
     return (
-        <div className='container'>
-            <div className="row" dataMansory={{percentPosition: true}}>
-            { products.map(prod => <Item prod={prod} key={prod.id} />) }
-            </div>
-        
-        </div>
+        <>
+            {productos.map (prod => <Item prod={prod} key={prod.id}/>
+                )
+    }
+     </> 
     )
 }
 
-
-export default ItemList;

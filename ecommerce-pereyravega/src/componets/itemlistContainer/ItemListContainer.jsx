@@ -1,59 +1,50 @@
-import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
-import ItemCount from "../ItemCount/ItemCount";
-import { getFetch } from "../Services/getFetch";
-import ItemList from "./ItemList"
+import {useState, useEffect} from 'react'
+import { getFetch } from '../Services/getFetch';
+import './Item.css';
+import { ItemList } from './ItemList';
+import {useParams} from 'react-router-dom'
 
 
+function ItemListContainer({saludo}) {
 
-const ItemListContainer = () => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const { id } = useParams();
-
-    useEffect(() => {
-        if (id) {
+    const [productos, setProductos] = useState ([])
+    const [loading, setLoading] = useState (true)
+    const {categoryID} = useParams();
+    
+    useEffect (() => {
+        if (categoryID) {
             getFetch
-                .then(res => setProducts(res.filter(prod => prod.categoria === id)))
-                .catch(err => console.log(err))
-                .finally(() => setLoading(false))
-        } else {
-             getFetch
-                 .then(res => setProducts(res))
-                 .catch(err => console.log(err))
-                 .finally(() => setLoading(false))
-            
+            .then (res => {
+                setProductos(res.filter(prod => prod.categoria === categoryID))
+         })
+            .catch(err=> console.log(err))
+            .finally(()=> setLoading(false))
         }
+       else {
+     getFetch
+     .then (res => {
+         setProductos(res)
+        })
+     .catch(err=> console.log(err))
+     .finally(()=> setLoading(false))}
+ },[categoryID])
 
-       
-    },[id] )
-
-
-      return (
+    return (
         <>
-        
-        
-        { loading ? <h2>Cargando...</h2> :
-        <ItemList products={products} />
-        
+        <div>
+           <p className="bienvenida">{saludo}</p> 
+            </div> 
+<div 
+ className='d-flex flex-wrap justify-content-around'
+>
+
+        { loading ? <div class="spinner-border text-light" role="status">
+  <span class="sr-only">Cargando...</span> 
+</div>   : <ItemList productos={productos}/>
+
         }
-
-        <ItemCount initial={0} stock={5}/>
-
+        </div>
         </>
-
-       
-        );
+    )
 }
-
-
-
-
-
-
-
-
-
-
-
-export default ItemListContainer;
+export default ItemListContainer

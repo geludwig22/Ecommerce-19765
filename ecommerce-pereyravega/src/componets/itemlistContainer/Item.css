@@ -1,0 +1,88 @@
+.card {
+    width: 20%;
+  }
+  
+  .card-margin {
+    margin: 0 10px;
+  }
+  
+  .btn {
+    border-color: rgb(82, 27, 233);
+    color: rgb(27, 109, 233);
+    background-color: black;
+  }
+  
+  .btn:hover {
+    background-color: rgb(106, 27, 233);
+    color: black;
+  }
+  
+  .loading {
+    color: white;
+    font-size: 40px;
+  }
+  
+  .cardFoto {
+     width: 50%; 
+  }
+  
+  .card-header {
+    background: rgb(33, 146, 251);
+  background: rgb(0, 132, 255);;
+    color: black;
+  }
+  
+  .card:hover .card-header {
+    background-color: rgb(120, 55, 241);
+  }
+  
+  .card-footer {
+    border-top: solid rgb(33, 63, 236) 2px;
+  
+  }
+  
+  .card-body {
+    height: 250px;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .titleCardHeader {
+    font-size: 20px;
+    color: #070525
+  }
+  
+  .card:hover {
+    box-shadow:  rgba(248, 248, 248, 0.7)  5px 5px 10px ;
+   
+    transition: 0.2s;
+  }
+  
+  .bienvenida {
+    color: black;
+    font-size: 25px;
+   padding-top: 2rem;
+   text-align: center;
+  
+  }
+  
+  .precio {
+      font-size: 20px;
+  }
+  
+  .categoria {
+      color: rgb(65, 64, 64);
+  }
+  
+  @media (max-width: 1024px) {
+    .card {
+      width: 80%;
+    }}

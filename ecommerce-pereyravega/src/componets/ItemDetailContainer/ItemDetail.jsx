@@ -1,56 +1,47 @@
-import React from 'react';
-import { useState } from 'react'
-import { Col, Row } from "react-bootstrap"
+import React from 'react'
+import {Link} from 'react-router-dom'
+import ItemCount from '../ItemCount/ItemCount'
+import './ItemDetail.css'
 import { useCartContext } from '../Context/CartContext'
 
+export const ItemDetail = ({prod, state, onAdd}) => {
+  const {disponibleProd } = useCartContext ()
 
-
-
-const ItemDetail = ({prod}) => {
-    const [count, setCount] = useState(0)
-
-    const {cartList, agregarCarrito } = useCartContext()
-  
-    const onAdd =(cant)=>{
-        setCount(cant) 
-        agregarCarrito( {...prod, cantidad: 2} )       
-    }
-    console.log(cartList)
-
-    return (
-        <Row>
-                <label>Detalle</label>
-                <Col>                
-                    <div className='card w-50'>
-                        <div className="container">
-                            <label>{prod.nombre}</label>
-                        </div>
-                        <div className="container">
-                            <img  src={prod.thumbnailUrl} className="w-25" alt=" " />
-                            <br/>
-                            <label>{prod.categoria}</label>
-                        </div>
-                        <div className="container">
-                            <label>{prod.precio}</label>
-                        </div>
+            return (
+              <>
+                <div className="container">
+                  <div className="detail-header">
+                    <h2> {prod.nombre} </h2>
+                  </div>
+                  <div className="card-body row">
+                    <div className="col carousel">
+                      <img className='cardFoto' src={prod.thumbnailUrl} alt="" ></img>
                     </div>
-                </Col>
-                <Col>
-                  
-                   <button onClick={onAdd}>Agregar Carrito</button>
-                                      
-                </Col>
-            </Row>
-    )
+                    <div className="col">
+                      <h3> $ {prod.precio}</h3>
+                      <p>Categoria: {prod.categoria} </p>
+                      <p>Stock {prod.stock}</p>
+                      <p>{prod.descripcion}</p>
+                      <p> {disponibleProd} </p>
+                    </div>
+                  </div>
+
+                  <div className="card-footer">
+                    {state ? (
+                      <><ItemCount stock={prod.stock} initial="1" onAdd={onAdd} /></>
+                    ) : (
+                      <>
+                        <Link to="/">
+                          <button className="buttonCount">Seguir comprando</button>
+                        </Link>
+                        <Link to="/Cart">
+                          <button className="buttonCount">Ir al Carrito</button>
+                        </Link>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </>
+            );
 }
 
-
-
-
-
-
-
-
-
-
-export default ItemDetail;

@@ -1,33 +1,47 @@
-// import { Button } from "bootstrap";
-import React, {useState} from "react";
+import { useState } from "react";
+import "./ItemCount.css";
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [count, setCount] = useState(initial)
+const ItemCount = ({ stock, initial, onAdd }) => {
+  const [count, setCount] = useState(1);
+  const [stockMessage, setStockMessage ] = useState();
 
-    const sumar = () => {
-        count < stock ? setCount(count + 1) : alert ('Sin stock disponible')
+  const sumarContador = () => {
+    if (count < stock) {
+      setCount(count + 1);
+    } else {
+      setStockMessage ('No hay más stock disponible')
+      eraseStockMessage()
+      
     }
-    const restar = () => {
-        count > initial ? setCount(count - 1) : alert ('No hay productos seleccionados')
+    console.log(count);
+  };
+  const restarContador = () => {
+    if (count > initial) {
+      setCount(count - 1);
     }
-    
-    const handleOnAdd = () => {
-        onAdd(count)
-        setCount(initial)
-    }
-    
-    
-    
-    return(
-        <div>
-        <button className='btn btn-outline-primary' onClick={sumar}>+</button>
-        <label>Cantidad: {count}</label>
-        <button className='btn btn-warning' onClick={restar}>-</button>
+    console.log(count);
+  };
 
-        <button className='btn btn-outline-secondary' onClick={handleOnAdd}>Agregar al carrito</button>
+  const eraseStockMessage=()=> {
+  setTimeout(()=> {
+    setStockMessage ()
+}, 3000)}
 
-        </div>
-    )
-}
+  return (
+    <>
+    <div>
+      <p className='btn-danger'> {stockMessage} </p>
+    </div>    
+    <div>
+      <button className="buttonCount" onClick={() => restarContador()}>
+        -
+      </button>
+      <span className="count">{count}</span>
+      <button className="buttonCount" onClick={() => sumarContador()}>+</button>
+      <button className='buttonCount' onClick={() => { onAdd(count) } }> Agregar al Carrito </button>
+    </div>
+    </>
+  );
+};
 
 export default ItemCount;
