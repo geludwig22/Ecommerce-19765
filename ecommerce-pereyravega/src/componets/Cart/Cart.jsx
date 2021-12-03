@@ -4,9 +4,13 @@ import {Link} from 'react-router-dom'
 import './Cart.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import FormBuyer from './FormBuyer'
+
 
 export const Cart = () => {
 
+  
+  
     const { CartList, borrarCarrito, borrarItem, cartTotal} = useCartContext ()
     console.log (CartList)
     return (
@@ -77,6 +81,7 @@ export const Cart = () => {
                 </tr>
               </table>
             </div>
+            <FormBuyer />
           </>
         )}
       </div>
