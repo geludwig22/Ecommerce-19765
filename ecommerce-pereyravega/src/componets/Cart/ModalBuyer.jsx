@@ -22,16 +22,11 @@ return (
           
           <div>
           {errorValue? <><h2>No ha completado todos los datos</h2> <img className='w-50' src="https://static.vecteezy.com/system/resources/previews/002/306/712/original/warning-symbol-sign-vector.jpg" alt="" srcset="" /> <h3>¡Vuelva a intentarlo!</h3></> :
-              <><h2> ¡Gracias por su compra {data.name}! </h2><img className='w-50' src="https://c.tenor.com/WYKoRh1NGPEAAAAd/truck-delivery.gif" alt="" srcset="" /><h3> Su pago por: $ {total} ya está realizado</h3><h4> Su ID de compra es: {id} </h4><h4>En unos dias recibirá su pedido</h4></>}
+              <><h2> ¡Gracias por su compra {data.name}! </h2><img className='w-50' src="https://c.tenor.com/WYKoRh1NGPEAAAAd/truck-delivery.gif" alt="" srcset="" /><h3> Su pago por: $ {total} ya está realizado</h3><h4> Su ID de compra es: {id} </h4><h4>En unos instantes recibirá su pedido</h4></>}
           </div>
         </ModalBody>
         <ModalFooter className='card-footer'>
-          {errorValue?  <Button color="success" onClick={toggle}>
-            OK
-          </Button> :  <Button color="success" onClick={toggle, cleanCart}>
-            OK
-          </Button>}
-         
+         <Button color="success" onClick={cleanCart}> OK</Button>
         </ModalFooter>
       </Modal>
     </div>

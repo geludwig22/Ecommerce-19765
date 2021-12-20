@@ -9,7 +9,7 @@ const { cantidadItem } = useCartContext()
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <Link className="navbar-brand ms-5 ms-md-0" to={'/'}>NombreEmpresa</Link>
+    <Link className="navbar-brand ms-5 ms-md-0" to={'/'}>Luigi's Bar</Link>
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

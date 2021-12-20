@@ -1,5 +1,4 @@
 import {useState, useEffect} from 'react';
-import { getFetch } from '../Services/getFetch';
 import {ItemDetail} from './ItemDetail'
 import {useParams} from 'react-router-dom'
 import { useCartContext } from '../Context/CartContext';
@@ -16,13 +15,15 @@ export default function ItemDetailContainer() {
 
 
     useEffect (() => {
-        const dbQuery = getFirestore()
-         dbQuery.collection('items').doc(detailID).get()
-             .then (resp => setProductos({ id:resp.id,...resp.data() }))
-        getFetch
-        .catch(err=> console.log(err))
-        .finally(()=> setLoading(false))
-    },[detailID])
+        const dbQuery = getFirestore();
+    dbQuery
+      .collection("items")
+      .doc(detailID)
+      .get()
+      .then((resp) => setProductos({ id: resp.id, ...resp.data() }))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  }, [detailID]);
 
     
     const {CartList, agregarCarrito} = useCartContext () 
@@ -33,10 +34,7 @@ export default function ItemDetailContainer() {
         setAddCart(false);
         agregarCarrito({...productos, cantidad: cant})
     }
-    console.log(CartList)
-    console.log(count)
-
-
+    
     return (
         <div>
             { loading ? <div class="spinner-border text-light" role="status">

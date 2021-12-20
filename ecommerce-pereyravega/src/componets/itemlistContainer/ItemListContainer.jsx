@@ -13,53 +13,34 @@ function ItemListContainer({saludo}) {
     
     
     useEffect (() => {
-        const dbQuery = getFirestore()
-        if (categoryID) {
-        dbQuery.collection('items').where('categoria','==',categoryID).get()
-        .then (data => setProductos(data.docs.map(pro =>({id:pro.id,...pro.data()}))))
-        .catch(err=> console.log(err))
-         .finally(()=> setLoading(false))
-} else {
-    dbQuery.collection('items').get()
-    .then (data => setProductos(data.docs.map(pro =>({id:pro.id,...pro.data()}))))
-    .catch(err=> console.log(err))
-     .finally(()=> setLoading(false))
-}
+        const db = getFirestore()
+        const dbQuery = categoryID
+        ? db.collection("items").where("categoria", "==", categoryID)
+        : db.collection("items");
+      dbQuery
+        .get()
+        .then((data) =>
+          setProductos(data.docs.map((pro) => ({ id: pro.id, ...pro.data() })))
+        )
+        .catch((err) => console.log(err))
+        .finally(() => setLoading(false));
+    }, [categoryID]);
 
-
-
-
-//         if (categoryID) {
-//             getFetch
-//             .then (res => {
-//                 setProductos(res.filter(prod => prod.categoria === categoryID))
-//          })
-//             .catch(err=> console.log(err))
-//             .finally(()=> setLoading(false))
-//         }
-//        else {
-//      getFetch
-//      .then (res => {
-//          setProductos(res)
-//         })
-//      .catch(err=> console.log(err))
-//      .finally(()=> setLoading(false))}
- },[categoryID])
 
     return (
         <>
         <div>
            <p className="bienvenida">{saludo}</p> 
             </div> 
-<div 
- className='d-flex flex-wrap justify-content-around'
->
+<div  className='d-flex flex-wrap justify-content-around'>
 
-        { loading ? <div class="spinner-border text-light" role="status">
-  <span class="sr-only">Cargando...</span> 
-</div>   : <ItemList productos={productos}/>
-
-        }
+        {loading ? (
+          <div className="spinner-border text-warning" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        ) : (
+          <ItemList productos={productos} />
+        )}
         </div>
         </>
     )

@@ -43,7 +43,7 @@ export const Cart = () => {
                 {CartList.map((prod) => (
                   <tr className="" key={prod.id}>
                     <td>
-                      <img className="fotoCart" src={prod.foto1} alt="" />
+                      <img className="fotoCart" src={prod.thumbnailUrl} alt="" />
                     </td>
                     <td className="prodName">{prod.nombre}</td>
                     <td>{prod.cantidad}</td>
@@ -63,8 +63,7 @@ export const Cart = () => {
                 ))}
 
                 <tr className="totalCountContainer">
-                  <td> <button className='buttonCount'>Finalizar Compra</button> </td>
-                  <td className="totalCount">
+                    <td className="totalCount">
                     <p> Total a pagar </p>
                     <p> $ {cartTotal} </p>
                   </td>
